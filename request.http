@@ -1,0 +1,23 @@
+POST http://localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name":"afif",
+    "email":"muhammad.20047@mhs.unesa.ac.id",
+    "password":"afif123",
+    "password_confirmation":"afif123"
+}
+
+
+###
+POST http://localhost:3000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email":"muhammad.20047@mhs.unesa.ac.id",
+    "password":"afif123"
+}
+
+###
+GET http://localhost:3000/api/v1/auth/whoami
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsImlhdCI6MTczMDg2Njk1MH0.B4N8Noo2M8RliW4QrAy-xDwGcX_-pSbum18JghN1B4I

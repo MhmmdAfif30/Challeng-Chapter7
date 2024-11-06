@@ -1,22 +1,23 @@
-const router = require('express').Router();
-const { register, login, activate, resetPassword } = require('../controllers/auth.controllers');
+const router = require("express").Router();
+const {
+  register,
+  login,
+  whoami,
+  activate,
+} = require("../controllers/auth.controllers");
+const { restrict } = require("../middlewares/auth.middlewares");
 
-router.post('/register', register);
-router.post('/login', login);
-router.get('/whoami', restrict, whoami);
+router.post("/register", register);
+router.post("/login", login);
+router.get("/whoami", restrict, whoami);
 
-router.get('/email-activation', (req, res) => {
-    let { token } = req.query;
-    res.render('email-activation', { token });
+// render halaman aktivasi
+router.get("/email-activation", (req, res) => {
+  let { token } = req.query;
+  res.render("email-activation", { token });
 });
 
-router.post('/email-activation', activate);
-
-router.get('/reset-password', (req, res) => {
-    res.render('reset-password');
-});
-
-router.post('/reset-password', resetPassword);
-
+// update user.is_verified
+router.post("/email-activation", activate);
 
 module.exports = router;
